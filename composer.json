@@ -22,7 +22,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Seal\\fetchr_sdk\\": "src/"
+            "Seal\\": "src/"
         }
     }
 }
