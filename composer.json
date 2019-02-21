@@ -1,5 +1,16 @@
 {
     "name": "seal/fetchr-sdk",
     "description": "sdk for Delivery Service Fetchr",
-
+    "keywords": ["fetchr", "delivery", "sdk", "php"],
+    "license": "MIT",
+    "type":"library",
+    "authors": [
+	    {
+	        "name": "Wet Seal",
+	        "homepage": "https://github.com/WetSealQQ/"
+	    }
+	],
+    "require": {
+    	"php": ">=5.3.0"
+    }
 }
