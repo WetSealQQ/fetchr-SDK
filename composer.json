@@ -1,5 +1,5 @@
 {
-    "name": "seal/fetchr-sdk",
+    "name": "seal/fetchr_sdk",
     "description": "sdk for Delivery Service Fetchr",
     "keywords": ["fetchr", "delivery", "sdk", "php"],
     "license": "MIT",
