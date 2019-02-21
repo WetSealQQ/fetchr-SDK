@@ -1,6 +1,6 @@
 <?php 
 
-namespace Seal;
+namespace Seal\fetchr_sdk;
 
 
 
