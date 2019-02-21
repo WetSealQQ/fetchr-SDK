@@ -19,5 +19,10 @@
           "type": "vcs",
           "url": "https://github.com/WetSealQQ/fetchr-SDK.git"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Seal\\fetchr_sdk\\": "src/"
+        }
+    }
 }
