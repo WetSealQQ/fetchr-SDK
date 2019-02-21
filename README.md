@@ -12,3 +12,10 @@ composer require .......
 ```
 ## Использование
 
+
+
+
+## Лицензия
+
+Данный SDK распространяется под лицензией [MIT](http://opensource.org/licenses/MIT).
+
