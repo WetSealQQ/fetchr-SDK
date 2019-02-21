@@ -7,7 +7,7 @@ Wet... dirt... code
 > Минимальные требования — PHP 5.3+.
 
 ```bash
-composer require appwilio/cdek-sdk
+composer require .......
 ```
 
 
