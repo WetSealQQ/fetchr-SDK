@@ -20,7 +20,7 @@ composer require seal/fetchr_sdk
 	- [x] Get Fulfillment SKU Stock Info
 
 - Order Tracking:
-	- [x] [Get Order Status](##Использование)
+	- [x] [Get Order Status](#Использование)
 	- [x] Get Order History
 	- [x] Get Bulk Order Status
 	- [x] Get Bulk Order History
