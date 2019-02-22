@@ -14,15 +14,9 @@
     	"php": ">=5.3.0"
     },
     "minimum-stability": "dev",
-    "repositories": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/WetSealQQ/fetchr-SDK.git"
-        }
-    ],
     "autoload": {
         "psr-4": {
-            "Seal\\fetchr_sdk\\": "src/"
+            "Seal\\fetchr_sdk\\": "src/fetchr_sdk"
         }
     }
 }
