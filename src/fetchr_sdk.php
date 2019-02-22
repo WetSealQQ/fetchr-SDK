@@ -106,9 +106,6 @@ class fetchr_sdk
 		//устанваливаем название текущего метода
 		$this->current_method_init = $action;
 
-		// проверяем наличие нужного масива
-		$data = !empty( $data['fetchr_data'] ) ? $data['fetchr_data'] : $this->errLog( self::EMPTY_DATA_ERR );
-
 
 		//вызываем нужный метод
 		$response = $this->$action( $data );
@@ -163,7 +160,7 @@ class fetchr_sdk
 	// пишем лог в файл
     private function addLogResponse($data, $header = null){
     	
-    	file_put_contents("fetchr_response/response_log__".date("d-m-Y").".txt", 
+    	file_put_contents("{$this->debug}/response_log__".date("d-m-Y").".txt", 
     		">>> {$this->current_method_init} ".date('(h:i)')."Header - {$header} \r\n".print_r($data, true)."\r\n\r\n", FILE_APPEND);
     	
     }
