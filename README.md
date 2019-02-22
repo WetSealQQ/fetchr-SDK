@@ -1,5 +1,5 @@
-# fetchr-SDK
-Wet... dirt... code TEST TEST TEST
+# Fetchr delivery SDK Coming soon ... or not
+Wet... dirt... code
 
 
 ## Установка
@@ -8,8 +8,11 @@ Wet... dirt... code TEST TEST TEST
 
 > curl enabled
 ```bash
-composer require .......
+composer require seal/fetchr_sdk
 ```
+## Возможности
+- [checkbox:checked] Create Dropship Orders
+
 ## Использование
 
 
