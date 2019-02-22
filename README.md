@@ -59,7 +59,7 @@ $response = $fetchr->init( $method_name, $data );
 	
 ```
 
-### Ответ fetchr
+### Ответ
 
 ```json
 {
