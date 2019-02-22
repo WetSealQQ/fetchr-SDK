@@ -22,21 +22,21 @@ composer require seal/fetchr_sdk
 
 - Order Creation:
 	- [x] [Create Dropship Orders](#сreateDropshipOrders)
-	- [x] [Create Reverse Orders]()
-	- [x] [Create Fulfillment Orders]()
-	- [x] [Get Fulfillment SKU Stock Info]()
+	- [x] [Create Reverse Orders](#сreateReverseOrders)
+	- [x] [Create Fulfillment Orders](#сreateFulfillmentOrders)
+	- [x] [Get Fulfillment SKU Stock Info](#getFulfillmentSKUInfo)
 
 - Order Tracking:
-	- [x] [Get Order Status]()
-	- [x] [Get Order History]()
-	- [x] [Get Bulk Order Status]()
-	- [x] [Get Bulk Order History]()
+	- [x] [Get Order Status](#getOrderStatus)
+	- [x] [Get Order History](#getOrderHistory)
+	- [x] [Get Bulk Order Status](#getBulkOrderStatus)
+	- [x] [Get Bulk Order History](#getBulkOrderHistory)
 
 - Order Service:
-	- [x] [Get AWB Link]()
+	- [x] [Get AWB Link](#getAWBLink)
 
 - Cancel Order:
-	- [x] [Cancel Order]()
+	- [x] [Cancel Order](#cancelOrder)
 
 - Schedule:
 	- [ ] Get Timeslots
