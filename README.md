@@ -13,25 +13,25 @@ composer require seal/fetchr_sdk
 
 ## Возможности
 
-### Order Creation:
+- Order Creation:
 	[x] Create Dropship Orders
 	[x] Create Reverse Orders
 	[x] Create Fulfillment Orders 
 	[x] Get Fulfillment SKU Stock Info
 
-### Order Tracking:
+- Order Tracking:
 	[x] [Get Order Status](##Использование)
 	[x] Get Order History
 	[x] Get Bulk Order Status
 	[x] Get Bulk Order History
 
-### Order Service:
+- Order Service:
 	[x] Get AWB Link
 
-### Cancel Order:
+- Cancel Order:
 	[x] Cancel Order
 
-### Schedule:
+- Schedule:
 	[ ] Get Timeslots
 	[ ] Schedule Order
 
