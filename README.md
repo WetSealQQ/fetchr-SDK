@@ -1,4 +1,4 @@
-# Fetchr delivery SDK Coming soon ... or not
+# Fetchr delivery SDK
 Wet... dirt... code
 
 
@@ -7,6 +7,7 @@ Wet... dirt... code
 > Минимальные требования — PHP 5.3+.
 
 > curl enabled
+
 ```bash
 composer require seal/fetchr_sdk
 ```
