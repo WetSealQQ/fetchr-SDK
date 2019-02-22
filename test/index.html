@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+	<meta charset="UTF-8">
+	<title> FETCHR </title>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+   <link rel="stylesheet" type="text/css" href="libs/flexdatalist/jquery.flexdatalist.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+	<style>
+
+	</style>
+
+
+</head>
+<body>
+
+
+<div class="main_container fetchr_delivery">
+	
+
+	<!-- MODAL WINDOW -->
+	<div class="modal_wrap" style="padding-top: 40px;">
+		<div class="close_modal">X</div>
+		<div class="content">
+			
+		</div>
+	</div>
+
+
+
+
+
+<div class="wrapper_module " data-module="fetchr_delivery" >
+	
+
+	<!-- 21791614 -->
+	<br>
+
+	<h1>Order Creation</h1>
+	
+	<div class="typeOrderCreation">
+		
+		
+		<h3>Выбирите тип создания заказа</h3>
+		<select  class="change_field" >
+			
+			<option  data-show-field="сreateDropshipOrders" data-area="order_creation" selected>Dropship Orders</option>
+			
+			<option data-show-field="сreateReverseOrders" data-area="order_creation">Reverse Orders</option>
+			
+			<option data-area="order_creation" data-show-field="сreateFulfillmentOrders">Fulfillment Orders</option>
+								
+		</select>
+		
+	</div>
+
+
+					
+<div id="order_creation">
+
+	<!-- ================== сreateDropshipOrders ================== -->
+
+	<div class="section" data-action="сreateDropshipOrders" data-show="сreateDropshipOrders">
+
+		<h3>Create Dropship Orders <br>
+			<span>Fetchr забирает продукты из местоположения отправителя и доставляет их получателю.</span>
+			<span></span>
+		</h3>
+
+
+		<form action="" class="" id="" target="" method="post">
+
+			
+			<div class="wrap_input flex-row">
+				<label>
+					<p> id адреса отправителя <a href="https://business.fetchr.us/manage-address" target="_blank">https://business.fetchr.us/manage-address</a> address id</p> 
+					<input type="text" id="order_reference" name="fetchr_data.client_address_id" class="data_collect required" value="ADDR13940659_25321">
+				</label>
+			</div>	
+
+
+			<div class="wrapper flex-row form-item">
+
+				<div class="left_side side">
+						
+
+
+
+					<div class="wrap_input flex-row">
+						<label>
+							<p> id заказа (order_id?) (Внутренняя ссылка заказа клиента) max length 40</p> 
+							<input type="text" id="order_reference" name="fetchr_data.data[0].order_reference" class="data_collect required" value="123123">
+						</label>
+						
+					</div>	
+					
+
+					<div class="wrap_input flex-row">
+						<label >
+							<p>Получатель (ФИО)</p>
+							<input type="text" id="name_to" name="fetchr_data.data[0].name" class="data_collect   required" value="Тест Николай Иванович">
+						</label>
+						
+					</div>
+
+
+					<div class="wrap_input flex-row">
+						<label >
+							<p>Номер телефона получателя в международном формате (+ 971xxxxx)</p>
+							<input type="text" name="fetchr_data.data[0].phone_number" class="data_collect required" value="971500000000">
+						</label>
+						
+					</div>
+
+
+					<div class="wrap_input flex-row location_input" >
+						<label > <p><b>Ввыберите</b> город</p> </label>
+							<input type="text"  name="fetchr_data.data[0].location" class="data_collect required location" value="">
+
+						<input type="hidden" name="fetchr_data.data[0].receiver_country" class="required country data_collect">
+						<input type="hidden" name="fetchr_data.data[0].receiver_city" class="required city data_collect ">
+
+					</div>
+
+							
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Адрес получателя</p> 
+							<input type="text" id="address_area" name="fetchr_data.data[0].address" class="data_collect required" value="Адрес получателя">
+						</label>
+					</div>
+					
+
+					<div class="wrap_input flex-row">
+						<label>
+							<p>Тип оплаты</p>
+							<select name="fetchr_data.data[0].payment_type" id="payment_type" class="data_collect required" >
+
+								<option value="COD" selected> COD (наложенным платежом)</option>
+								<option value="Credit Card"> Credit Card </option>
+
+							</select>
+
+						</label>
+						
+					</div>
+					
+
+
+
+
+			<!-- 
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Description Описание товаров в отправлении ( ПОДСТАВЛЯТЬ АВТОМАТОМ? )</p> 
+							<textarea name="fetchr_data.data[0].description" class="data_collect required" placeholder="product name: product quantity, product_B: 3"></textarea>
+						</label>
+					</div> -->
+
+
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>total amount общая сума в валюте страны назначения ( ПОДСТАВЛЯТЬ АВТОМАТОМ? )</p> 
+							<input type="text" name="fetchr_data.data[0].total_amount" class="total_amount data_collect required" value="1233">
+						</label>
+					</div>
+					
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>ВЕС в КГ (скорее всего для всей посылки) max 300 min 0.001. ( ПОДСТАВЛЯТЬ АВТОМАТОМ? )</p> 
+							<p>**Обязательно только для международных посылок</p> 
+							<input type="text" name="fetchr_data.data[0].weight" class="data_collect required" value="22">
+						</label>
+					</div>
+
+
+					<div class="order_items">
+
+						
+						<button type="button" class="add_item">Добавть вложение</button>
+						
+						
+
+						<div class="wrap_item">
+							
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>description описание товара</p> 
+									<textarea  name="fetchr_data.data[0].items[0].description" data-val-name="description" class=" data_collect required">description 123</textarea>
+								</label>
+							</div>
+
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>sku - id товара</p> 
+									<input type="text" name="fetchr_data.data[0].items[0].sku" data-val-name="sku" class="data_collect required " value="id123">
+								</label>
+							</div>
+
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>quantity количество товара</p> 
+									<input type="text" name="fetchr_data.data[0].items[0].quantity" data-val-name="quantity" class="data_collect required " value="5">
+								</label>
+							</div>
+							<!-- 
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>Стоимость заказа за единицу в долларах США. (НЕ ОБЯЗАТЕЛЬНО)</p> 
+									<input type="text" data-val-name="order_value_per_unit" name="fetchr_data.data[0].items[0].order_value_per_unit" class="data_collect">
+								</label>
+							</div>
+ 							-->
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>Стоимость заказа за единицу в валюте страны назначения.</p> 
+									<input type="text" data-val-name="currency_destination" name="fetchr_data.data[0].items[0].currency_destination" class="data_collect required" value='123'>
+								</label>
+							</div>
+					
+						</div>
+
+
+					</div>
+
+				</div>
+					
+
+
+
+				<div class="right_side side">
+					
+					<!-- <div class="wrap_input flex-row">
+						<label> 
+							<p>Customer's national ID, max length is 128 characters (хз что это)</p> 
+							<input type="text" id="customer_national_id" name="fetchr_data.data[0].customer_national_id" class="data_collect">
+						</label>
+					</div> -->
+
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Адрес электронной почты получателя</p> 
+							<input type="text" id="customer_email" name="fetchr_data.data[0].email" class="data_collect" value="mail@mail.com">
+						</label>
+					</div>
+
+
+					<!-- <div class="wrap_input flex-row">
+						<label> 
+							<p>Количество посылок (отправлений)??? max 100 default 1</p> 
+							<input type="text" name="fetchr_data.data[0].bag_count" class="data_collect ">
+						</label>
+					</div> -->
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Комментарий к отправлению</p> 
+							<textarea name="fetchr_data.data[0].comments" class="data_collect">Comment</textarea>
+						</label>
+					</div>
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Тип отправления Package type, for example: dangerous, </p> 
+							<textarea name="fetchr_data.data[0].order_package_type" class="data_collect " >not dangerous</textarea>
+						</label>
+					</div>
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>The seller name displayed when sending sms message, max length is 64 characters</p> 
+							<input name="fetchr_data.data[0].sms_company_name" class="data_collect " value="DISPLAY SHOP IN SMS">
+						</label>
+					</div>
+
+									
+				</div>
+
+			</div>
+
+			<div class="flex-row space-around">	
+				<div class="wrap_btn">
+					<button type="button" class="btn send">СОЗДАТЬ</button>
+				</div>
+	
+			</div>
+
+
+		</form>
+
+	</div>
+	
+
+
+
+	<!-- ================== сreateReverseOrders ================== -->
+
+	<div class="section" data-action="сreateReverseOrders" data-show="сreateReverseOrders">
+
+		<h3> Create Reverse Orders <br>
+			<span>Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка обратно отправителю</span>
+			<span></span>
+		</h3>
+
+
+		<form action="" class="" id="" target="" method="post">
+
+			
+			<div class="wrapper flex-row form-item">
+
+				<div class="left_side side">
+						
+					<div class="wrap_input flex-row">
+						<label>
+							<p> id адреса отправителя <a href="https://business.fetchr.us/manage-address" target="_blank">https://business.fetchr.us/manage-address</a> address id</p> 
+							<input type="text" name="fetchr_data.data[0].client_address_id" class="data_collect required" value="ADDR13940659_25321">
+						</label>
+					</div>	
+
+
+					<div class="wrap_input flex-row">
+						<label>
+							<p> id заказа (order_id?) (Внутренняя ссылка заказа клиента) max length 40</p> 
+							<input type="text"  name="fetchr_data.data[0].package_data.package_reference" class="data_collect required" value="123123">
+						</label>
+						
+					</div>	
+
+
+
+					
+
+					<div class="wrap_input flex-row">
+						<label >
+							<p>Получатель (ФИО)</p>
+							<input type="text" id="name_to" name="fetchr_data.data[0].customer_data.name" class="data_collect   required" value="Тест Николай Иванович">
+						</label>
+						
+					</div>
+
+
+					<div class="wrap_input flex-row">
+						<label >
+							<p>Номер телефона получателя в международном формате (+ 971xxxxx)</p>
+							<input type="text" name="fetchr_data.data[0].customer_data.phone" class="data_collect required" value="971500000000">
+						</label>
+						
+					</div>
+
+
+					<div class="wrap_input flex-row location_input" >
+						<label > <p><b>Ввыберите</b> город</p> </label>
+						<input type="text"  name="fetchr_data.data[0].customer_data.location" class="data_collect required location" value="">
+
+						<input type="hidden" name="fetchr_data.data[0].customer_data.country" class="required country data_collect">
+						<input type="hidden" name="fetchr_data.data[0].customer_data.city" class="required city data_collect ">
+
+					</div>
+
+
+					
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Адрес получателя</p> 
+							<input type="text" id="address_area" name="fetchr_data.data[0].customer_data.street_one" class="data_collect required" value="Адрес получателя">
+						</label>
+					</div>
+					
+
+					<div class="wrap_input flex-row">
+						<label>
+							<p>Тип оплаты</p>
+							<select name="fetchr_data.data[0].package_data.payment_type" id="payment_type" class="data_collect required" >
+
+								<option value="COD" selected> COD (наложенным платежом)</option>
+								<option value="Credit Card"> Credit Card </option>
+
+							</select>
+
+						</label>
+						
+					</div>
+					
+					<div class="wrap_input flex-row">
+						<label>
+							<p> Тип отправления </p> 
+							<select name="fetchr_data.data[0].package_data.type" class="data_collect required">
+								<option value="fragile">fragile (хрупкое)</option>
+								<option value="document" selected>document </option>
+								<option value="nondocument">non document</option>
+							</select>
+						</label>
+					</div>	
+
+
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>total amount общая сума в валюте страны назначения ( ПОДСТАВЛЯТЬ АВТОМАТОМ? )</p> 
+							<input type="text" name="fetchr_data.data[0].package_data.cod_amount" class="total_amount data_collect required" value="1233">
+						</label>
+					</div>
+					
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>ВЕС в КГ (скорее всего для всей посылки) max 300 min 0.001. ( ПОДСТАВЛЯТЬ АВТОМАТОМ? )</p> 
+							<p>**Обязательно только для международных посылок</p> 
+							<input type="text" name="fetchr_data.data[0].package_data.weight" class="data_collect required" value="22">
+						</label>
+					</div>
+
+
+					<div class="order_items">
+
+						
+						<button type="button" class="add_item">Добавть вложение</button>
+						
+						
+
+						<div class="wrap_item">
+							
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>description описание товара</p> 
+									<textarea  name="fetchr_data.data[0].package_data.product_items[0].product_description" data-val-name="description" class=" data_collect required">description 123</textarea>
+								</label>
+							</div>
+
+
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>quantity количество товара</p> 
+									<input type="text" name="fetchr_data.data[0].package_data.product_items[0].product_qty" data-val-name="quantity" class="data_collect required " value="5">
+								</label>
+							</div>
+
+							<!-- <div class="wrap_input flex-row">
+								<label> 
+									<p>Стоимость заказа за единицу в $ (НЕ ОБЯЗАТЕЛЬНО)</p> 
+									<input type="text" name="fetchr_data.data[0].package_data.product_items[0].order_value_per_unit" data-val-name="order_value_per_unit" class="data_collect">
+								</label>
+							</div> -->
+				
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>Стоимость заказа за единицу в валюте страны назначения.</p> 
+									<input type="text" data-val-name="currency_destination" name="fetchr_data.data[0].package_data.product_items[0].currency_destination" value='123' class="data_collect required ">
+								</label>
+							</div>
+					
+					
+						</div>
+
+
+					</div>
+
+				</div>
+
+
+
+					
+
+				<div class="right_side side">
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Адрес электронной почты получателя</p> 
+							<input type="text" id="customer_email" name="fetchr_data.data[0].customer_data.email" class="data_collect" value="mail@mail.com">
+						</label>
+					</div>
+
+
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Комментарий к отправлению</p> 
+							<textarea name="fetchr_data.data[0].customer_data.instructions" class="data_collect">Comment</textarea>
+						</label>
+					</div>
+									
+				</div>
+
+			</div>
+
+			<div class="flex-row space-around">	
+				<div class="wrap_btn">
+					<button type="button" class="btn send">СОЗДАТЬ</button>
+				</div>
+	
+			</div>
+
+
+		</form>
+
+	</div>
+
+
+
+
+	<!-- ================== сreateFulfillmentOrders ================== -->
+
+	<div class="section" data-action="сreateFulfillmentOrders" data-show="сreateFulfillmentOrders">
+
+		<h3> Create Fulfillment Orders <br>
+			<span>Fulfillment Orders - это заказ по сбору товара на складе Fetchr и доставке получателю.</span>
+			<span></span>
+		</h3>
+
+
+		<form action="" class="" id="" target="" method="post">
+
+			
+			<div class="wrap_input flex-row">
+				<label>
+					<p> Warehouse Address <a href="https://xapidoc.docs.apiary.io/#introduction/fulfillment-order-warehouse-address-info">warehouse-address-info</a></p> 
+
+					<select name="fetchr_data.data[0].warehouse_location.id" class="data_collect required">
+						<option value="UAE_DXB_WHS_001" selected=""> United Arab Emirates, Dubai </option>
+						<option value="KSA_RUH_WHS_001"> Saudi Arabia, Riyadh </option>
+						<option value="EGY_CAI_WHS_001"> Egypt, Cairo </option>
+						<option value="BHR_AMH_WHS_001"> Bahrain, Manama </option>
+						<option value="JOR_AMN_WHS_001"> Jordan, Amman </option>
+						<option value="OMN_MCT_WHS_001"> Oman, Muscat </option>
+					</select>
+
+				</label>
+			</div>	
+
+
+			<div class="wrapper flex-row form-item">
+
+				<div class="left_side side">
+						
+
+
+
+					<div class="wrap_input flex-row">
+						<label>
+							<p> id заказа (order_id?) (Внутренняя ссылка заказа клиента) max length 40</p> 
+							<input type="text" name="fetchr_data.data[0].details.order_reference" class="data_collect required" value="123123">
+						</label>
+					</div>	
+					
+
+					<div class="wrap_input flex-row">
+						<label >
+							<p>Получатель (ФИО)</p>
+							<input type="text" id="name_to" name="fetchr_data.data[0].details.customer_name" class="data_collect required" value="Тест Николай Иванович">
+						</label>
+					</div>
+
+
+					<div class="wrap_input flex-row">
+						<label >
+							<p>Номер телефона получателя в международном формате (+ 971xxxxx)</p>
+							<input type="text" name="fetchr_data.data[0].details.customer_phone" class="data_collect required" value="971500000000">
+						</label>
+						
+					</div>
+
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Адрес электронной почты получателя</p> 
+							<input type="text"  name="fetchr_data.data[0].details.customer_email" class="data_collect required" value="mail@mail.com">
+						</label>
+					</div>
+
+					<div class="wrap_input flex-row location_input" >
+						<label > <p><b>Ввыберите</b> город</p> </label>
+							<input type="text"  name="fetchr_data.data[0].details.location" class="data_collect required location" value="">
+
+						<input type="hidden" name="fetchr_data.data[0].details.customer_country" class="required country data_collect">
+
+						<input type="hidden" name="fetchr_data.data[0].details.customer_city" class="required city data_collect ">
+						
+					</div>
+
+					
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Адрес получателя</p> 
+							<input type="text" id="address_area" name="fetchr_data.data[0].details.customer_address" class="data_collect required" value="Адрес получателя">
+						</label>
+					</div>
+					
+
+					<div class="wrap_input flex-row">
+						<label>
+							<p>Тип оплаты</p>
+							<select name="fetchr_data.data[0].details.payment_type" class="data_collect required" >
+
+								<option value="COD" selected> COD (наложенным платежом)</option>
+								<option value="Credit Card"> Credit Card </option>
+
+							</select>
+
+						</label>
+						
+					</div>
+					
+
+					<div class="order_items">
+
+						
+						<button type="button" class="add_item">Добавть вложение</button>
+						
+
+						<div class="wrap_item">
+							
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>название товара</p> 
+									<textarea  name="fetchr_data.data[0].items[0].name" data-val-name="description" class=" data_collect required">description 123</textarea>
+								</label>
+							</div>
+
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>sku - id товара ( скорее всего должно совпадать с ид товара в црм и ид товара в складе fetchr)</p> 
+									<input type="text" name="fetchr_data.data[0].items[0].sku" data-val-name="sku" class="data_collect required " value="id123">
+								</label>
+							</div>
+
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p>quantity количество товара</p> 
+									<input type="text" name="fetchr_data.data[0].items[0].quantity" data-val-name="quantity" class="data_collect required " value="5">
+								</label>
+							</div>
+
+
+
+						<!-- 	<div class="wrap_input flex-row">
+							<label> 
+								<p> плата за обработку ( НЕ ОБЯЗАТЕЛЬНО )</p> 
+								<input type="text" name="fetchr_data.data[0].items[0].processing_fee" data-val-name="processing_fee" class="data_collect" value="0">
+							</label>
+						</div> -->
+
+
+
+							<div class="wrap_input flex-row">
+								<label> 
+									<p> Стоимость товара за единицу в валюте страны назначения. </p> 
+									<input type="text" data-val-name="currency_destination" name="fetchr_data.data[0].items[0].price_per_unit" class="data_collect required" value="5">
+								</label>
+							</div>
+					
+					
+						</div>
+
+
+					</div>
+
+				</div>
+					
+
+
+
+				<div class="right_side side">
+
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Скидка, вычитается из общей суммы заказа default 0</p> 
+							<input type="text" name="fetchr_data.data[0].details.discount" class="data_collect">
+						</label>
+					</div>
+
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p> Дополнительная плата за этот заказ (например, плата за доставку) default 0</p> 
+							<input type="text" name="fetchr_data.data[0].details.extra_fee" class="data_collect">
+						</label>
+					</div>
+
+
+
+
+
+					<div class="wrap_input flex-row">
+						<label> 
+							<p>Комментарий к отправлению</p> 
+							<textarea name="fetchr_data.data[0].details.comments" class="data_collect">Comment</textarea>
+						</label>
+					</div>
+
+	
+									
+				</div>
+
+			</div>
+
+			<div class="flex-row space-around">	
+				<div class="wrap_btn">
+					<button type="button" class="btn send">СОЗДАТЬ</button>
+				</div>
+	
+			</div>
+
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+	<div class="section" data-action="getFulfillmentSKUInfo" >
+
+		<h3> Get Order Status <br>
+			<span> Используется для получения информации о заказе по sku ??<br>
+			This API is used to get stock info for fulfillment orders by sku</span>
+			<span></span>
+		</h3>
+
+
+		<div class="wrap_input flex-row column">
+			<label > 
+				<p> sku </p>
+				<input type="text" name="fetchr_data.sku" class="data_collect required" placeholder="" value=''>
+		    </label>
+		</div>
+
+		<div class="wrap_btn">
+			<button type="button" class="btn send">Получить</button>
+		</div>
+
+	</div>
+
+
+
+
+	<br>
+	<br>
+	<h1>Order Tracking</h1>
+	<div class="section" data-action="getOrderStatus" >
+
+		<h3> Get Order Status <br>
+			<span>Получаем последний статус заказа</span>
+			<span></span>
+		</h3>
+
+
+		<div class="wrap_input flex-row column">
+			<label > 
+				<p>tracking number</p>
+				<input type="text" name="fetchr_data.tracking_number" class="data_collect required" placeholder="" value='3412132879068'>
+		    </label>
+		</div>
+
+		<div class="wrap_btn">
+			<button type="button" class="btn send">Получить</button>
+		</div>
+
+	</div>
+
+
+
+	<div class="section" data-action="getOrderHistory" >
+
+		<h3> Get Order History <br>
+			<span>Получаем историю статусов для заказа</span>
+			<span></span>
+		</h3>
+
+		<div class="wrap_input flex-row column">
+			<label > 
+				<p>tracking number</p>
+				<input type="text" name="fetchr_data.tracking_number" class="data_collect required" placeholder="" value='3412132879068'>
+		    </label>
+		</div>
+
+		<div class="wrap_btn">
+			<button type="button" class="btn send">Получить</button>
+		</div>
+
+	</div>
+
+
+
+	<div class="section" data-action="getBulkOrderStatus" >
+
+		<h3> Get Bulk Order Status <br>
+			<span> Получаем последний статус заказа для нескольких ттн </span>
+			<span></span>
+		</h3>
+
+
+		<div class="wrap_input flex-row column">
+			<label > 
+				<p>tracking number</p>
+				<textarea name="fetchr_data.tracking_numbers" class="data_collect required" placeholder="ttn1, ttn2, ......"></textarea>
+			</label>
+		</div>
+
+		<div class="wrap_btn">
+			<button type="button" class="btn send">Получить</button>
+		</div>
+
+	</div>
+
+
+
+
+	<div class="section" data-action="getBulkOrderHistory" >
+
+		<h3> Get Bulk Order History <br>
+			<span> Получаем историю статусов нескольких ттн </span>
+			<span></span>
+		</h3>
+
+
+		<div class="wrap_input flex-row column">
+			<label > 
+				<p>tracking number</p>
+				<textarea name="fetchr_data.tracking_numbers" class="data_collect required" placeholder="ttn1, ttn2, ......"></textarea>
+			</label>
+		</div>
+
+		<div class="wrap_btn">
+			<button type="button" class="btn send">Получить</button>
+		</div>
+
+	</div>
+
+
+
+	<br>
+	<br>
+	<h1>Order Service API</h1>
+	<div class="section" data-action="getAWBLink" >
+
+		<h3> Get AWB Link <br>
+			<span> получаем ссылку пдф </span>
+			<span></span>
+		</h3>
+
+
+		<div class="wrap_input flex-row column">
+			<label > 
+				<p>tracking number</p>
+				<input type="text" name="fetchr_data.tracking_number" class="data_collect required" placeholder="" value='3412132879068'>
+		    </label>
+		</div>
+
+		<div class="wrap_input flex-row column">
+			<label > 
+				<p>type pdf</p>
+				<select name="fetchr_data.type" class="data_collect">
+					<option value=""  disabled selected>Выберите тип печатной формы</option>
+					<option value="8x4"  >8x4</option>
+					<option value="6x4"  >6x4</option>
+					<option value="mini"  >mini</option>
+					<option value="label"  >label</option>
+					<option value="standard"  >standard</option>
+				</select>
+		    </label>
+		</div>
+
+		<div class="wrap_btn">
+			<button type="button" class="btn send">Получить</button>
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<br>
+	<br>
+	<h1>Cancel Order API</h1>
+	<div class="section" data-action="cancelOrder" >
+
+		<h3> Cancel Order  <br>
+			<span> отмена созданого заказа </span>
+		</h3>
+		<p>Only orders in the following status can be cancelled:</p>
+		<ul>
+		 	<li>order_received_at_warehouse (REC)</li>
+		 	<li>order_shelved (SLV)</li>
+		 	<li>order_picked (PKD)</li>
+		 	<li>order_created (UPL)</li>
+		 	<li>order_on_hold (HLD)</li>
+		 	<li>order_shceduled (SCH)</li>
+		 </ul>
+
+
+		<div class="wrap_input flex-row column">
+			<label > 
+				<p>tracking number</p>
+				<textarea name="fetchr_data.tracking_no" class="data_collect required" placeholder="ttn1, ttn2, ......"></textarea>
+			</label>
+		</div>
+
+
+		<div class="wrap_btn">
+			<button type="button" class="btn send">Cancel orders</button>
+		</div>
+
+	</div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!--==========================================================================-->
+<!--=============================== SCRIPTS ==================================-->
+<!--==========================================================================-->
+
+	<script>
+
+		// Устанавливаем значение общей суммы стоимости товаров
+		// block - jq elem
+		function setTotalCurrency( block ){
+			var this_ = block,
+				currency_blocks = this_.find('.order_items .wrap_item'),
+				total_elem = this_.find('.total_amount');
+
+			var tmp_amount = 0;
+
+			currency_blocks.each(function (){
+				var th = $(this),
+					value_per_unit = th.find('[data-val-name="currency_destination"]').val(),
+					quantity = th.find('[data-val-name="quantity"]').val();
+
+				if( !!value_per_unit && !!quantity){
+					tmp_amount += (value_per_unit * quantity);
+				}	
+
+			});
+
+
+			total_elem.val(tmp_amount);
+		}
+
+		setTotalCurrency( $('[data-action="сreateReverseOrders"]') );
+		setTotalCurrency( $('[data-action="сreateDropshipOrders"]') );
+		
+	</script>
+
+
+	<script src="libs/flexdatalist/jquery.flexdatalist.min.js"></script>
+	
+	<script>
+
+		// AUTOCOMPLETE CITY
+		$(function (){
+			
+			$('.location').flexdatalist({
+			     minLength: 1,
+
+			     limitOfValues: 1,
+			     multiple: true,
+			     selectionRequired: true,
+			     // removeOnBackspace: false,
+			     focusFirstResult: true,
+			     searchIn:  ['full_name'],
+			     textProperty: '{full_name}',
+			     
+     			 valueProperty: ["country", 'city'],
+     			 
+			     visibleProperties: ["country", 'city' ],
+			     data: "countries.json",
+			     searchByWord: true,
+			     searchContain: true,
+			     
+			     maxShownResults: 10,
+			});
+
+
+			$('.location').on("before:flexdatalist.remove", function (){
+				var this_ = $(this),
+					main_container = this_.closest('[data-action]'),
+					country_elem = main_container.find('.country'),
+					city_elem = main_container.find('.city');
+
+				//console.log(this_.val());
+				this_.val('');
+				country_elem.val('');
+				city_elem.val('');
+
+
+				
+			});
+
+
+			$('.location').on("select:flexdatalist", function (){
+				var this_ = $(this),
+					val = this_.val(),
+					main_container = this_.closest('[data-action]'),
+					country_elem = main_container.find('.country'),
+					city_elem = main_container.find('.city');
+
+					val = JSON.parse(val);
+
+					country_elem.val(val[0]['country']);
+					city_elem.val(val[0]['city']);
+			});
+
+
+
+		});
+	</script>
+
+	
+
+
+	<script>
+		$(function(){
+
+			
+			$("body").on("click", ".remove_item", function(){
+
+				var this_ = $(this),
+					form = this_.closest('.form-item');
+
+				// удаление вложения
+				removeItem( $(this) );
+
+				// просчет общей цены товаров
+				setTotalCurrency( form );
+			});
+
+
+			
+			$("body").on("click", ".add_item", function(){
+
+				var this_ = $(this),
+					form = this_.closest('.form-item');
+
+				// добавления вложения
+				addItem( form, 'items' );
+
+				// просчет общей цены товаров
+				setTotalCurrency( form );
+
+			});
+
+			// удаление вложения
+			function removeItem( form_btn ){
+
+				var this_ = form_btn,
+					container = this_.closest(".wrap_item"),
+					form = this_.closest('.form-item'),
+					data = container.data('i');
+
+					var available_num = form.data('available_num');
+					available_num[data] = false;
+				 
+				container.remove();
+			}
+
+
+
+
+			// добавления вложения
+			function addItem( form, changeNumReg, changesValues ){
+
+				var val_change = changesValues || {};
+
+				var container = form.find(".order_items"),
+					all_items = container.find('.wrap_item'),
+					all_items_length = all_items.length,
+				    remove_btn = `<div class="remove_item">X</div>`,
+				    clone_el = all_items.first().clone(true);
+
+
+				if( !form.data('available_num') ){
+					form.data('available_num', {});
+				}
+
+				var available_num = form.data('available_num');
+
+				var num = get_unique_index(available_num, all_items_length);
+			    
+				available_num[num] = true;
+
+				clone_el.data('i', num);
+
+			    clone_el.append(remove_btn);
+			    var clone_data = clone_el.find("input:not([disabled]), textarea:not([disabled])");
+
+				    clone_data.each(function(){
+
+				    	var this_ = $(this),
+				    		name = this_.attr('name'),
+				    		data_name = this_.attr('data-val-name');
+
+
+				    	var reg = new RegExp('(^.+'+changeNumReg+'\\[)(\\d+)(\\].+)', 'gi');
+
+				    	if(!!name){
+					    	name = name.replace(reg, "$1"+num+"$3");
+					    	//console.log(reg);
+
+					    	this_.attr('name', name);
+				    	}
+
+				    	// изменяем занчение если определено
+				    	if( !!val_change[data_name] ){
+				    		this_.val(val_change[data_name]);
+				    	}else{
+				    		this_.val('');
+				    	}
+				    	
+				    });
+
+			    container.append(clone_el);
+
+
+			}
+
+
+
+			function get_unique_index(obj, indx){
+				var num;
+				// проверяем есть ли такой индекс в обьекте
+				// если нет такого индекса добавляем
+				if( !obj[indx] ){
+					obj[indx] = true;
+					num = indx;
+
+
+				// проверяем не заполненые значения
+				}else{
+					for( num in obj ){
+						if( !obj[num] ){
+							break;
+						}
+					}
+				};
+
+				if( !num ){
+					num = indx+1;
+				}
+
+				return num;
+			}
+
+
+		});
+	</script>
+
+
+	<script src="libs/form2js/form2js.js"></script>
+	<script>
+		$(function(){
+
+
+			// закрываем модалку
+			$(".close_modal").on("click", function(){
+				var this_ = $(this);
+				this_.closest('.modal_wrap').hide();
+			});
+
+
+			// скрытие/показ блоков
+			$(".change_field").on("change", function(){
+
+				var this_ = $(this),
+					
+					checked_element = this_.find("option:selected"),
+					wrap_element = checked_element.attr("data-area"),
+					show_element = checked_element.attr("data-show-field"),
+					mainEl = $("#"+wrap_element),
+					currShowBlock = mainEl.find("[data-show='"+show_element+"']");
+
+					mainEl.find("[data-show]").fadeOut(11);
+					currShowBlock.fadeIn(300);
+
+			});
+
+
+
+
+
+			// СОБИРАЕМ ДАННЫЕ / ОТПРАВКА ЗАПРОСА
+
+			var currMethodName;
+			// отправляем данные формы
+			$(".send").on("click", function(e){
+				e.preventDefault();
+				//собираем все данные с полей
+				var this_ = $(this),
+					mainEl = (this_.is(".calculate_cost")) ? this_.closest(".form-item") : this_.closest("[data-action]"),	// для правильного расчета стоимости если создали несколько заказов				
+					methodName = mainEl.attr("data-action"),
+					curr_module = mainEl.closest("[data-module]").attr("data-module"),
+
+					formData = mainEl.find("input:not([disabled]), textarea:not([disabled])"),
+					containerSelector = mainEl.get(),
+					data__ = form2js(containerSelector),
+					validate = true;
+					currMethodName = methodName;
+					//console.log(formData);
+					
+				// проверяем валидацию		
+				formData.each(function(){
+					var this_ = $(this),
+						value = $.trim(this_.val()),
+						key = this_.attr("name");
+						
+						//console.log(value, key);
+					
+					if( !value && this_.is(".required") && !this_.is("#location-flexdatalist") && !this_.is(".flexdatalist-alias") ){
+
+						//console.log(this_);
+						validate = false;
+						this_.css("border-color", "red");
+					}else if( !value ){
+						return true;
+					}
+				});
+
+				//добавляем метод в запрос
+				data__["action"] = methodName;
+				data__["module"] = curr_module;
+
+				console.log(data__);
+				
+				if( validate ){
+					$.post("handler.php", {data: JSON.stringify(data__)}, success);
+					formData.css("border-color", "");
+				}else{
+					alert("Заполните поля");
+				}
+				
+				
+			});
+
+
+
+			var methods_handler = {
+
+			// Create Dropship Orders
+				'сreateDropshipOrders': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'success'
+				},
+
+
+			// Create Reverse Orders
+				'сreateReverseOrders': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'success'
+				},
+
+			// Create Fulfillment Orders
+				'сreateReverseOrders': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'success'
+				},
+
+
+			// Get Fulfillment SKU Stock Info
+				'getFulfillmentSKUInfo': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'success'
+				},
+
+
+
+
+
+
+
+			// Get Order Status
+				'getOrderStatus': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'OK'
+				},
+
+
+			// Get Order History
+				'getOrderHistory': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'OK'
+				},
+
+			// Get Bulk Order Status
+				'getBulkOrderStatus': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'OK'
+				},
+
+			// Get Bulk Order History
+				'getBulkOrderHistory': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'OK'
+				},
+
+
+
+
+
+
+
+
+
+
+			// Get AWB Link
+				'getAWBLink': {
+					success: function (data){
+						var modal = $('.modal_wrap'),
+							content = modal.find(".content");
+
+						//content.html("<a href='"+data+"' target='_blank'> LINK </a>");
+						content.html(`<object type="application/pdf" data="${data}" class="embed_pdf">
+							<p><a href="${data}" target="_blank">Загрузить PDF</a></p>
+							<embed type="application/pdf" class="embed" src="https://drive.google.com/viewerng/viewer?embedded=true&url=${data}" />
+							</object>`);
+						
+						modal.show();
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'success'
+				},
+
+
+
+
+
+
+
+
+			// Cancel Order
+				'cancelOrder': {
+					success: function (data){
+						console.log(data);
+					},
+					error: function (data){
+						console.log(data);
+					},
+					success_str: 'success'
+				},
+
+			};
+
+
+
+			function success( data ){
+				var data_json = data,
+					data = JSON.parse(data),
+					body = data['body'],
+					method_name = data['method'],
+					modal = $('.modal_wrap');
+					
+
+				if( !!methods_handler[method_name] ){
+
+					var success = methods_handler[method_name]['success'],
+						error = methods_handler[method_name]['error'],
+						success_str = methods_handler[method_name]['success_str'];
+
+
+						
+
+					
+
+
+					// вызываем success | error для текущего метода
+					checkResponse( body, success, error, success_str );
+
+				}else{
+					console.log('error method name');
+				}
+
+				// 
+				//console.log( data );
+			};
+
+
+
+			// проверяем ответ  
+			function checkResponse( resp_arr, onSuccessCall, onErrorCall, successStr ){
+
+				var success_str = successStr || 'success';
+				
+
+				if( resp_arr['status'] ===  success_str ){
+
+					var data_resp = resp_arr['data'],
+						count_data_resp = data_resp.length;
+						//console.log(data_resp);
+					// если масив с числовыми индексами то обрабатываем через цикл
+					if( Array.isArray(data_resp) &&  !!data_resp[0] ){
+
+						// проходим по каждому эл 
+						for ( var i=0; i < count_data_resp; i++ ) {
+
+							var curr_data = data_resp[i];
+
+							// проверяем статус эл
+							if( curr_data['status'] ===  success_str ){
+								// ТУТ ВЫПОЛНЯЕМ SUCCESS
+								onSuccessCall(curr_data);		
+							}else{
+								// ТУТ ВЫПОЛЯНЕМ ERROR
+								onErrorCall(curr_data);
+							}
+						}
+					}else{
+						// ТУТ ВЫПОЛНЯЕМ SUCCESS
+						onSuccessCall(data_resp);
+					}
+				}else{
+					// ТУТ ВЫПОЛЯНЕМ ERROR
+					onErrorCall(resp_arr);
+				}
+			}
+
+
+		});
+
+	</script>
+
+	
+
+
+
+
+</body>
+</html>
+
