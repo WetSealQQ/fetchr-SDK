@@ -50,11 +50,11 @@
 		<h3>Выбирите тип создания заказа</h3>
 		<select  class="change_field" >
 			
-			<option  data-show-field="сreateDropshipOrders" data-area="order_creation" selected>Dropship Orders</option>
+			<option  data-show-field="createDropshipOrders" data-area="order_creation" selected>Dropship Orders</option>
 			
-			<option data-show-field="сreateReverseOrders" data-area="order_creation">Reverse Orders</option>
+			<option data-show-field="createReverseOrders" data-area="order_creation">Reverse Orders</option>
 			
-			<option data-area="order_creation" data-show-field="сreateFulfillmentOrders">Fulfillment Orders</option>
+			<option data-area="order_creation" data-show-field="createFulfillmentOrders">Fulfillment Orders</option>
 								
 		</select>
 		
@@ -64,9 +64,9 @@
 					
 <div id="order_creation">
 
-	<!-- ================== сreateDropshipOrders ================== -->
+	<!-- ================== createDropshipOrders ================== -->
 
-	<div class="section" data-action="сreateDropshipOrders" data-show="сreateDropshipOrders">
+	<div class="section" data-action="createDropshipOrders" data-show="createDropshipOrders">
 
 		<h3>Create Dropship Orders <br>
 			<span>Fetchr забирает продукты из местоположения отправителя и доставляет их получателю.</span>
@@ -305,9 +305,9 @@
 
 
 
-	<!-- ================== сreateReverseOrders ================== -->
+	<!-- ================== createReverseOrders ================== -->
 
-	<div class="section" data-action="сreateReverseOrders" data-show="сreateReverseOrders">
+	<div class="section" data-action="createReverseOrders" data-show="createReverseOrders">
 
 		<h3> Create Reverse Orders <br>
 			<span>Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка обратно отправителю</span>
@@ -511,9 +511,9 @@
 
 
 
-	<!-- ================== сreateFulfillmentOrders ================== -->
+	<!-- ================== createFulfillmentOrders ================== -->
 
-	<div class="section" data-action="сreateFulfillmentOrders" data-show="сreateFulfillmentOrders">
+	<div class="section" data-action="createFulfillmentOrders" data-show="createFulfillmentOrders">
 
 		<h3> Create Fulfillment Orders <br>
 			<span>Fulfillment Orders - это заказ по сбору товара на складе Fetchr и доставке получателю.</span>
@@ -967,8 +967,8 @@
 			total_elem.val(tmp_amount);
 		}
 
-		setTotalCurrency( $('[data-action="сreateReverseOrders"]') );
-		setTotalCurrency( $('[data-action="сreateDropshipOrders"]') );
+		setTotalCurrency( $('[data-action="createReverseOrders"]') );
+		setTotalCurrency( $('[data-action="createDropshipOrders"]') );
 		
 	</script>
 
@@ -1266,7 +1266,7 @@
 			var methods_handler = {
 
 			// Create Dropship Orders
-				'сreateDropshipOrders': {
+				'createDropshipOrders': {
 					success: function (data){
 						console.log(data);
 					},
@@ -1278,7 +1278,7 @@
 
 
 			// Create Reverse Orders
-				'сreateReverseOrders': {
+				'createReverseOrders': {
 					success: function (data){
 						console.log(data);
 					},
@@ -1289,7 +1289,7 @@
 				},
 
 			// Create Fulfillment Orders
-				'сreateReverseOrders': {
+				'createReverseOrders': {
 					success: function (data){
 						console.log(data);
 					},

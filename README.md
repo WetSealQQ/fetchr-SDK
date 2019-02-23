@@ -22,22 +22,39 @@ composer require seal/fetchr_sdk
 ## Возможности
 
 - Order Creation:
-	- [x] [Create Dropship Orders](#сreateDropshipOrders)
-	- [x] [Create Reverse Orders](#сreateReverseOrders)
-	- [x] [Create Fulfillment Orders](#сreateFulfillmentOrders)
-	- [x] [Get Fulfillment SKU Stock Info](#getFulfillmentSKUInfo)
+	- [x] [Create Dropship Orders](method - createDropshipOrders)
+		- Fetchr забирает продукты ИЗ МЕСТОПОЛОЖЕНИЯ ОТПРАВИТЕЛЯ и доставляет их получателю.
+
+	- [x] [Create Reverse Orders](method - createReverseOrders)
+		- Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка обратно отправителю
+
+	- [x] [Create Fulfillment Orders](method - createFulfillmentOrders)
+		- Fulfillment Orders - это заказ по сбору товара на складе Fetchr и доставке получателю.
+
+	- [x] [Get Fulfillment SKU Stock Info](method - getFulfillmentSKUInfo)
+		- Используется для получения информации о складе для выполнения заказов по sku
+
 
 - Order Tracking:
-	- [x] [Get Order Status](#getOrderStatus)
-	- [x] [Get Order History](#getOrderHistory)
-	- [x] [Get Bulk Order Status](#getBulkOrderStatus)
-	- [x] [Get Bulk Order History](#getBulkOrderHistory)
+	- [x] [Get Order Status](method - getOrderStatus)
+		- Получаем последний статус для заказа
+
+	- [x] [Get Order History](method - getOrderHistory)
+		- Получаем историю статусов для заказа
+
+	- [x] [Get Bulk Order Status](method - getBulkOrderStatus)
+		- Получаем последний статус заказа для нескольких ттн
+
+	- [x] [Get Bulk Order History](method - getBulkOrderHistory)
+		- Получаем историю статусов нескольких ттн
 
 - Order Service:
-	- [x] [Get AWB Link](#getAWBLink)
+	- [x] [Get AWB Link](method - getAWBLink)
+		- Получаем ссылку пдф
 
 - Cancel Order:
-	- [x] [Cancel Order](#cancelOrder)
+	- [x] [Cancel Order](method - cancelOrder)
+		- отмена созданого заказа
 
 - Schedule:
 	- [ ] Get Timeslots
@@ -119,52 +136,6 @@ $response = $fetchr->init( $method_name, $data );
 }
 
 ```
-
-
-## Методы
-	
-### сreateDropshipOrders
-- Fetchr забирает продукты ИЗ МЕСТОПОЛОЖЕНИЯ ОТПРАВИТЕЛЯ и доставляет их получателю.
-
-
-### сreateReverseOrders
-- Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка обратно отправителю
-
-
-### сreateFulfillmentOrders
-- Fulfillment Orders - это заказ по сбору товара на складе Fetchr и доставке получателю.
-
-
-### getFulfillmentSKUInfo
-- Используется для получения информации о складе для выполнения заказов по sku
-
-
-### getOrderStatus
-- Получаем последний статус для заказа
-
-
-### getOrderHistory
-- Получаем историю статусов для заказа
-
-
-### getBulkOrderStatus
-- Получаем последний статус заказа для нескольких ттн
-
-
-### getBulkOrderHistory
-- Получаем историю статусов нескольких ттн
-
-
-### getAWBLink
-- Получаем ссылку пдф
-
-
-### cancelOrder
-- отмена созданого заказа
-
-
-
-
 
 
 ## Лицензия

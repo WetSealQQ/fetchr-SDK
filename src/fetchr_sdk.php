@@ -329,17 +329,17 @@ class fetchr_sdk
 	// настройки для каждого метода
 	private $methods = array(
 		
-		'сreateDropshipOrders' => array(
+		'createDropshipOrders' => array(
 			'method' => 'POST',
 			'path' => 'order/',
 		),
 
-		'сreateReverseOrders' => array(
+		'createReverseOrders' => array(
 			'method' => 'POST',
 			'path' => 'reverse/',
 		),
 
-		'сreateFulfillmentOrders' => array(
+		'createFulfillmentOrders' => array(
 			'method' => 'POST',
 			'path' => 'fulfillment/',
 		),
@@ -407,7 +407,7 @@ class fetchr_sdk
 	// используеться когда:
 	// Fetchr забирает продукты ИЗ МЕСТОПОЛОЖЕНИЯ ОТПРАВИТЕЛЯ и доставляет их получателю.
 	// -------------------------------------
-    private function сreateDropshipOrders( $data ){
+    private function createDropshipOrders( $data ){
 
     	$method_name = __FUNCTION__;
 
@@ -456,7 +456,7 @@ class fetchr_sdk
 	// Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка 
 	// обратно отправителю
 	// -------------------------------------
-    private function сreateReverseOrders( $data ){
+    private function createReverseOrders( $data ){
 
     	$method_name = __FUNCTION__;
 
@@ -492,7 +492,7 @@ class fetchr_sdk
 	// Fulfillment Orders - это заказ по сбору товара на складе Fetchr 
 	// и доставке получателю.
 	// -------------------------------------
-    private function сreateFulfillmentOrders( $data ){
+    private function createFulfillmentOrders( $data ){
 
     	$method_name = __FUNCTION__;
 
