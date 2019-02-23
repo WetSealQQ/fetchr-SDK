@@ -25,12 +25,11 @@ class fetchr_sdk
 
 
 	public function __construct( $token_key, $debug = null ){
-		if( !$token_key ) $this->errLog( self::AUTH_FAIL_ERR );
+		if( !$token_key ) return $this->errLog( self::AUTH_FAIL_ERR );
 
 		$this->token_key = $token_key;
 		$this->debug = $debug;
-
-		$this->current_method_init = 'construct';
+	
 	}
 
 
@@ -75,9 +74,10 @@ class fetchr_sdk
 		
 		if( !empty($this->current_method_init) ) $err['method'] = $this->current_method_init;
 
-   		echo json_encode( $err );
+		return $err;
+   		/*echo 
    	
-        die();
+        die();*/
     }
 	//------------------------------------------
 	// 		END	ERRORS
@@ -135,8 +135,8 @@ class fetchr_sdk
 		$arr = array();
 		$settings_method =  $this->methods[$method_name];
 
-		$path = $this->checkRequiredValue( 'path', self::METHOD_SETTINGS_ERR, $settings_method );
-		$method = $this->checkRequiredValue( 'method', self::METHOD_SETTINGS_ERR, $settings_method );
+		$path = $settings_method['path'];
+		$method = $settings_method['method'];
 
 		$arr['header'] = $this->generateHeader();
 		$arr['url'] = self::request_url.$path;
@@ -218,7 +218,7 @@ class fetchr_sdk
 
 	    // если прислали не json - выводим ошибку
 	    if( !$response ){
-	    	$this->errLog( self::PARSE_RESPONSE_ERR );
+	    	return $this->errLog( self::PARSE_RESPONSE_ERR );
 	    }
 
         $response_arr = array('method'=> $this->current_method_init, "body" => $response, "header" =>$content_type);
@@ -258,13 +258,18 @@ class fetchr_sdk
 			for ($i=0; $i < $count_items; $i++) { 
 				$curr_item = &$curr_data['items'][$i];
 
-				$desc = !empty($curr_item['description']) ? 
-						$curr_item['description'] : 
-						$this->errLog(self::VALUE_EXIST_ERR, "description");
 
-				$quantity = !empty($curr_item['quantity']) ? 
-						$curr_item['quantity'] : 
-						$this->errLog(self::VALUE_EXIST_ERR, "quantity");
+				if(!empty($curr_item['description'])){
+					$desc = $curr_item['description'];
+				}else{
+					return $this->errLog(self::VALUE_EXIST_ERR, "description");
+				}
+				
+				if( !empty($curr_item['quantity']) ){
+					$desc = $curr_item['quantity'];
+				}else{
+					return $this->errLog(self::VALUE_EXIST_ERR, "quantity");
+				}					
 
 				$desc = str_replace(':', ' ', $desc);
 
@@ -274,7 +279,7 @@ class fetchr_sdk
 
 			return rtrim($tmp_str, ',');
 		}else{
-			$this->errLog(self::VALUE_EXIST_ERR, "description | quantity");	
+			return $this->errLog(self::VALUE_EXIST_ERR, "description | quantity");	
 		}
 
 		return $tmp_str;
@@ -306,7 +311,7 @@ class fetchr_sdk
 			return $data;
 
 		}else{
-			$this->errLog( self::EMPTY_DATA_ERR, "tracking_number" );	
+			return $this->errLog( self::EMPTY_DATA_ERR, "tracking_number" );	
 		}
 
     }	
@@ -314,10 +319,10 @@ class fetchr_sdk
 
 
 
-    // вычисляем количество пакетов (в 1м пакете max 300кг)
+/*    // вычисляем количество пакетов (в 1м пакете max 300кг)
     private function checkCountBag ( $weight ){
     	return ceil( $weight / self::MAX_WEIGHT_IN_BAG );
-    }
+    }*/
 
 
 
@@ -412,11 +417,11 @@ class fetchr_sdk
     	for ($i=0; $i < $count_data; $i++) { 
     		$curr_data = &$data['data'][$i];
 
-    		// проверяем количество пакетов
+/*    		// проверяем количество пакетов
     		if( !empty($curr_data['weight']) && empty($curr_data['bag_count']) ){
     			$count_bag = $this->checkCountBag ( $curr_data['weight'] );
     			$curr_data['bag_count'] = $count_bag;
-    		}    	
+    		}   */ 	
 	    	
     		//проверка на location (устанавливаем город и страну)
     		//$this->locationParse($curr_data);
@@ -424,6 +429,12 @@ class fetchr_sdk
     		//добавляем description
     		if( empty($curr_data['description']) ){
     			$descABW = $this->itemsParse($curr_data);
+
+		    	//возвращаем если ошибка
+		    	if( !empty($descABW['body']['status']) && $descABW['body']['status'] == 'error' ){
+		    		return $descABW;
+		    	}
+		    	
     			$curr_data['description'] = $descABW;
     		}
    		
@@ -506,6 +517,8 @@ class fetchr_sdk
     }
 
 
+
+
     // -------------------------------------
 	// Get Fulfillment SKU Stock Info
 	// используется для получения информации о складе для 
@@ -519,6 +532,11 @@ class fetchr_sdk
     	// обрабатываем обязательные параметры
     	$sku = $this->checkRequiredValue( 'sku', self::VALUE_EXIST_ERR, $data );
     	
+    	//возвращаем если ошибка
+    	if( !empty($sku['body']['status']) && $sku['body']['status'] == 'error' ){
+    		return $sku;
+    	}
+
     	$resp_settings = $this->getResponseSettings( $method_name );
 
     	$response = $this->sendRequest( $resp_settings['method'], $resp_settings['url'].$sku.'/' , $resp_settings['header'] );
@@ -550,7 +568,12 @@ class fetchr_sdk
 
     	// обрабатываем обязательные параметры
     	$track_num = $this->checkRequiredValue( 'tracking_number', self::VALUE_EXIST_ERR, $data );
-    	
+
+    	//возвращаем если ошибка
+    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    		return $track_num;
+    	}
+
     	$resp_settings = $this->getResponseSettings( $method_name );
 
     	$response = $this->sendRequest( $resp_settings['method'], $resp_settings['url'].$track_num.'/' , $resp_settings['header'] );
@@ -579,7 +602,12 @@ class fetchr_sdk
 
     	// обрабатываем обязательные параметры
     	$track_num = $this->checkRequiredValue( 'tracking_number', self::VALUE_EXIST_ERR, $data );
-    	
+
+    	//возвращаем если ошибка
+    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    		return $track_num;
+    	}
+
     	$resp_settings = $this->getResponseSettings( $method_name );
 
     	$response = $this->sendRequest( $resp_settings['method'], $resp_settings['url'].$track_num.'/' , $resp_settings['header'] );
@@ -610,6 +638,11 @@ class fetchr_sdk
 
     	// обрабатываем обязательные параметры
     	$track_num = $this->splitValue($data['tracking_numbers']);
+
+    	//возвращаем если ошибка
+    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    		return $track_num;
+    	}
     	
     	$resp_settings = $this->getResponseSettings( $method_name );
 
@@ -643,7 +676,12 @@ class fetchr_sdk
 
     	// обрабатываем обязательные параметры
     	$track_num = $this->splitValue($data['tracking_numbers']);
-    	
+
+    	//возвращаем если ошибка
+    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    		return $track_num;
+    	}
+
     	$resp_settings = $this->getResponseSettings( $method_name );
 
     	$json_data['tracking_numbers'] = $track_num;
@@ -690,35 +728,19 @@ class fetchr_sdk
 		// обрабатываем обязательные параметры
     	$track_num = $this->checkRequiredValue( 'tracking_number', self::VALUE_EXIST_ERR, $data );
 
+    	//возвращаем если ошибка
+    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    		return $track_num;
+    	}
+
     	$resp_settings = $this->getResponseSettings( $method_name );
-    	
-    	
-
-/*    	$resp = array();
-		if( is_array($data['type']) ){
-    		$count_type = count($data['type']);
-
-	    	for ( $i=0; $i < $count_type; $i++ ) { 
-	    		$curr_type = $data['type'][$i];
-	    		$query_type = !empty($data['type']) ? '/?type='.$curr_type : '';
-	    		
-		    	$curr_resp = $this->sendRequest( $resp_settings['method'], $resp_settings['url'].$track_num.$query_type, $resp_settings['header'] );
-		    	$resp[] = $curr_resp['response'];
-
-    		}
-
-    	}elseif( is_string($data['type']) ){*/
-    		$query_type = !empty($data['type']) ? '/?type='.$data['type'] : '';
+	
+		$query_type = !empty($data['type']) ? '/?type='.$data['type'] : '';
 
 
+		$response = $this->sendRequest( $resp_settings['method'], $resp_settings['url'].$track_num.$query_type, $resp_settings['header'] );
 
-    		$response = $this->sendRequest( $resp_settings['method'], $resp_settings['url'].$track_num.$query_type, $resp_settings['header'] );
-
-
-    		//$response = array('header'=> '', 'method'=> $method_name, 'body'=> array("status"=> "success", "data"=>'https://cms-awbs.fetchr.us/label8x4_34170409312003.pdf') );
-
-	    	/*$resp[] = $curr_resp['response'];*/
-    /*	}*/
+		//$response = array('header'=> '', 'method'=> $method_name, 'body'=> array("status"=> "success", "data"=>'https://cms-awbs.fetchr.us/label8x4_34170409312003.pdf') );
 
 
     	return $response;	
@@ -748,7 +770,12 @@ class fetchr_sdk
 
     	// обрабатываем обязательные параметры
     	$track_num = $this->splitValue($data['tracking_no']);
-    	
+
+    	//возвращаем если ошибка
+    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    		return $track_num;
+    	}
+
     	$resp_settings = $this->getResponseSettings( $method_name );
 
     	$json_data['tracking_no'] = $track_num;
