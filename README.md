@@ -16,7 +16,8 @@ composer require seal/fetchr_sdk
 
 В директории test создан интерфейс для тестирования 
 для этого вставте в файл user_token.php свой api token
-** Токен можно получить обратившись в службу поддержки fetchr ( support@fetchr.us )
+
+> Токен можно получить обратившись в службу поддержки fetchr ( support@fetchr.us )
 
 
 
