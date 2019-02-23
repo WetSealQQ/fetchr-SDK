@@ -104,55 +104,55 @@ $response = $fetchr->init( $method_name, $data );
 	- [x] Create Dropship Orders - Fetchr забирает продукты ИЗ МЕСТОПОЛОЖЕНИЯ ОТПРАВИТЕЛЯ и доставляет их получателю.
 		
 		```php
-			$response = $fetchr->init( 'createDropshipOrders', $data );
+		$response = $fetchr->init( 'createDropshipOrders', $data );
 		```
 
 
 	- [x] Create Reverse Orders - Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка обратно отправителю 
 
-```php
-$response = $fetchr->init( 'createReverseOrders', $data );
-```
+		```php
+		$response = $fetchr->init( 'createReverseOrders', $data );
+		```
 
 
 	- [x] Create Fulfillment Orders - Fulfillment Orders - это заказ по сбору товара на складе Fetchr и доставке получателю.
 		
-```php
-	$response = $fetchr->init( 'createFulfillmentOrders', $data );
-```
+		```php
+			$response = $fetchr->init( 'createFulfillmentOrders', $data );
+		```
 
 	- [x] Get Fulfillment SKU Stock Info - Используется для получения информации о складе для выполнения заказов по sku
 		
 		```php
-			$response = $fetchr->init( 'getFulfillmentSKUInfo', $data );
+		$response = $fetchr->init( 'getFulfillmentSKUInfo', $data );
 		```
 
 - Order Tracking:
 	- [x] Get Order Status - Получаем последний статус для заказа
 		
 		```php
-			$response = $fetchr->init( 'getOrderStatus', $data );
+		$response = $fetchr->init( 'getOrderStatus', $data );
 		```
 
 
 	- [x] Get Order History - Получаем историю статусов для заказа
 		
 		```php
-			$response = $fetchr->init( 'getOrderHistory', $data );
+		$response = $fetchr->init( 'getOrderHistory', $data );
 		```
 
 
 	- [x] Get Bulk Order Status - Получаем последний статус заказа для нескольких ттн
 		
 		```php
-			$response = $fetchr->init( 'getBulkOrderStatus', $data );
+		$response = $fetchr->init( 'getBulkOrderStatus', $data );
 		```
 
 
 	- [x] Get Bulk Order History - Получаем историю статусов нескольких ттн
 		
 		```php
-			$response = $fetchr->init( 'getBulkOrderHistory', $data );
+		$response = $fetchr->init( 'getBulkOrderHistory', $data );
 		```
 
 
@@ -160,14 +160,14 @@ $response = $fetchr->init( 'createReverseOrders', $data );
 	- [x] Get AWB Link - Получаем ссылку пдф
 		
 		```php
-			$response = $fetchr->init( 'getAWBLink', $data );
+		$response = $fetchr->init( 'getAWBLink', $data );
 		```
 
 - Cancel Order:
 	- [x] Cancel Order - отмена созданого заказа
 		
 		```php
-			$response = $fetchr->init( 'cancelOrder', $data );
+		$response = $fetchr->init( 'cancelOrder', $data );
 		```
 
 - Schedule:
