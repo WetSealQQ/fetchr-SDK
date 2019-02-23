@@ -19,47 +19,6 @@ composer require seal/fetchr_sdk
 ** Токен можно получить обратившись в службу поддержки fetchr ( support@fetchr.us )
 
 
-## Возможности
-
-- Order Creation:
-	- [x] [Create Dropship Orders](method - createDropshipOrders)
-		- Fetchr забирает продукты ИЗ МЕСТОПОЛОЖЕНИЯ ОТПРАВИТЕЛЯ и доставляет их получателю.
-
-	- [x] [Create Reverse Orders](method - createReverseOrders)
-		- Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка обратно отправителю
-
-	- [x] [Create Fulfillment Orders](method - createFulfillmentOrders)
-		- Fulfillment Orders - это заказ по сбору товара на складе Fetchr и доставке получателю.
-
-	- [x] [Get Fulfillment SKU Stock Info](method - getFulfillmentSKUInfo)
-		- Используется для получения информации о складе для выполнения заказов по sku
-
-
-- Order Tracking:
-	- [x] [Get Order Status](method - getOrderStatus)
-		- Получаем последний статус для заказа
-
-	- [x] [Get Order History](method - getOrderHistory)
-		- Получаем историю статусов для заказа
-
-	- [x] [Get Bulk Order Status](method - getBulkOrderStatus)
-		- Получаем последний статус заказа для нескольких ттн
-
-	- [x] [Get Bulk Order History](method - getBulkOrderHistory)
-		- Получаем историю статусов нескольких ттн
-
-- Order Service:
-	- [x] [Get AWB Link](method - getAWBLink)
-		- Получаем ссылку пдф
-
-- Cancel Order:
-	- [x] [Cancel Order](method - cancelOrder)
-		- отмена созданого заказа
-
-- Schedule:
-	- [ ] Get Timeslots
-	- [ ] Schedule Order
-
 
 ## Использование
 
@@ -136,6 +95,84 @@ $response = $fetchr->init( $method_name, $data );
 }
 
 ```
+
+
+## Методы
+
+- Order Creation:
+	- [x] Create Dropship Orders - Fetchr забирает продукты ИЗ МЕСТОПОЛОЖЕНИЯ ОТПРАВИТЕЛЯ и доставляет их получателю.
+		
+		```php
+			$response = $fetchr->init( 'createDropshipOrders', $data );
+		```
+
+
+	- [x] Create Reverse Orders - Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка обратно отправителю 
+
+		```php
+			$response = $fetchr->init( 'createReverseOrders', $data );
+		```
+
+
+	- [x] Create Fulfillment Orders - Fulfillment Orders - это заказ по сбору товара на складе Fetchr и доставке получателю.
+		
+		```php
+			$response = $fetchr->init( 'createFulfillmentOrders', $data );
+		```
+
+	- [x] Get Fulfillment SKU Stock Info - Используется для получения информации о складе для выполнения заказов по sku
+		
+		```php
+			$response = $fetchr->init( 'getFulfillmentSKUInfo', $data );
+		```
+
+- Order Tracking:
+	- [x] Get Order Status - Получаем последний статус для заказа
+		
+		```php
+			$response = $fetchr->init( 'getOrderStatus', $data );
+		```
+
+
+	- [x] Get Order History - Получаем историю статусов для заказа
+		
+		```php
+			$response = $fetchr->init( 'getOrderHistory', $data );
+		```
+
+
+	- [x] Get Bulk Order Status - Получаем последний статус заказа для нескольких ттн
+		
+		```php
+			$response = $fetchr->init( 'getBulkOrderStatus', $data );
+		```
+
+
+	- [x] Get Bulk Order History - Получаем историю статусов нескольких ттн
+		
+		```php
+			$response = $fetchr->init( 'getBulkOrderHistory', $data );
+		```
+
+
+- Order Service:
+	- [x] Get AWB Link - Получаем ссылку пдф
+		
+		```php
+			$response = $fetchr->init( 'getAWBLink', $data );
+		```
+
+- Cancel Order:
+	- [x] Cancel Order - отмена созданого заказа
+		
+		```php
+			$response = $fetchr->init( 'cancelOrder', $data );
+		```
+
+- Schedule:
+	- [ ] Get Timeslots
+	- [ ] Schedule Order
+
 
 
 ## Лицензия
