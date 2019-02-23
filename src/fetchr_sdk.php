@@ -266,7 +266,7 @@ class fetchr_sdk
 				}
 				
 				if( !empty($curr_item['quantity']) ){
-					$desc = $curr_item['quantity'];
+					$quantity = $curr_item['quantity'];
 				}else{
 					return $this->errLog(self::VALUE_EXIST_ERR, "quantity");
 				}					
