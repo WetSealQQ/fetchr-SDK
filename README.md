@@ -110,9 +110,9 @@ $response = $fetchr->init( $method_name, $data );
 
 	- [x] Create Reverse Orders - Обратный заказ - это заказ на получение товаров (которые необходимо вернуть) у получателя и отправка обратно отправителю 
 
-		```php
-			$response = $fetchr->init( 'createReverseOrders', $data );
-		```
+	```php
+$response = $fetchr->init( 'createReverseOrders', $data );
+```
 
 
 	- [x] Create Fulfillment Orders - Fulfillment Orders - это заказ по сбору товара на складе Fetchr и доставке получателю.
