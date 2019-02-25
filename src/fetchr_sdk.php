@@ -431,7 +431,7 @@ class fetchr_sdk
     			$descABW = $this->itemsParse($curr_data);
 
 		    	//возвращаем если ошибка
-		    	if( !empty($descABW['body']['status']) && $descABW['body']['status'] == 'error' ){
+		    	if( is_array($descABW) && !empty($descABW['body']['status']) && $descABW['body']['status'] == 'error' ){
 		    		return $descABW;
 		    	}
 		    	
@@ -533,7 +533,7 @@ class fetchr_sdk
     	$sku = $this->checkRequiredValue( 'sku', self::VALUE_EXIST_ERR, $data );
     	
     	//возвращаем если ошибка
-    	if( !empty($sku['body']['status']) && $sku['body']['status'] == 'error' ){
+    	if( is_array($sku) && !empty($sku['body']['status']) && $sku['body']['status'] == 'error' ){
     		return $sku;
     	}
 
@@ -570,7 +570,7 @@ class fetchr_sdk
     	$track_num = $this->checkRequiredValue( 'tracking_number', self::VALUE_EXIST_ERR, $data );
 
     	//возвращаем если ошибка
-    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    	if( is_array($track_num) && !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
     		return $track_num;
     	}
 
@@ -604,7 +604,7 @@ class fetchr_sdk
     	$track_num = $this->checkRequiredValue( 'tracking_number', self::VALUE_EXIST_ERR, $data );
 
     	//возвращаем если ошибка
-    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    	if( is_array($track_num) && !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
     		return $track_num;
     	}
 
@@ -640,7 +640,7 @@ class fetchr_sdk
     	$track_num = $this->splitValue($data['tracking_numbers']);
 
     	//возвращаем если ошибка
-    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    	if( is_array($track_num) && !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
     		return $track_num;
     	}
     	
@@ -678,7 +678,7 @@ class fetchr_sdk
     	$track_num = $this->splitValue($data['tracking_numbers']);
 
     	//возвращаем если ошибка
-    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    	if( is_array($track_num) && !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
     		return $track_num;
     	}
 
@@ -720,7 +720,7 @@ class fetchr_sdk
     	$track_num = $this->checkRequiredValue( 'tracking_number', self::VALUE_EXIST_ERR, $data );
 
     	//возвращаем если ошибка
-    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    	if( is_array($track_num) && !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
     		return $track_num;
     	}
 
@@ -760,7 +760,7 @@ class fetchr_sdk
     	$track_num = $this->splitValue($data['tracking_no']);
 
     	//возвращаем если ошибка
-    	if( !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
+    	if( is_array($track_num) && !empty($track_num['body']['status']) && $track_num['body']['status'] == 'error' ){
     		return $track_num;
     	}
 
